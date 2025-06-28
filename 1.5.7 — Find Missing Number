@@ -1,0 +1,14 @@
+import sys
+
+def find_missing(n, numbers):
+    expected_sum = n * (n + 1) // 2
+    actual_sum = sum(numbers)
+    missing = expected_sum - actual_sum
+    print(f"Missing number: {missing}")
+
+# Command line: python find_missing.py 5
+# Example: stdin input: 1 2 4 5  --> missing 3
+if __name__ == "__main__":
+    n = int(sys.argv[1])
+    nums = list(map(int, input(f"Enter {n-1} numbers: ").split()))
+    find_missing(n, nums)
