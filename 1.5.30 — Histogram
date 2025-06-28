@@ -1,0 +1,19 @@
+import sys
+import matplotlib.pyplot as plt
+
+def plot_histogram(n, lo, hi, values):
+    bins = [lo + i*(hi - lo)/n for i in range(n+1)]
+    plt.hist(values, bins=bins, edgecolor='black')
+    plt.title("Histogram")
+    plt.xlabel("Value")
+    plt.ylabel("Count")
+    plt.show()
+
+# Command line: python histogram.py 5 0.0 1.0
+# Input: double values separated by space
+if __name__ == "__main__":
+    n = int(sys.argv[1])
+    lo = float(sys.argv[2])
+    hi = float(sys.argv[3])
+    values = list(map(float, input(f"Enter values: ").split()))
+    plot_histogram(n, lo, hi, values)
