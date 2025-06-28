@@ -1,0 +1,19 @@
+def signal_stats(values):
+    if not values:
+        return
+
+    avg_mag = sum(abs(v) for v in values) / len(values)
+    avg_power = sum(v**2 for v in values) / len(values)
+
+    zero_crossings = 0
+    for i in range(1, len(values)):
+        if values[i-1] * values[i] < 0:
+            zero_crossings += 1
+
+    print(f"Average magnitude: {avg_mag:.4f}")
+    print(f"Average power: {avg_power:.4f}")
+    print(f"Zero crossings: {zero_crossings}")
+
+# Example usage:
+sequence = list(map(float, input("Enter values between -1 and +1: ").split()))
+signal_stats(sequence)
