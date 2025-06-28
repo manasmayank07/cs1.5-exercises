@@ -1,0 +1,15 @@
+def filter_duplicates(seq):
+    if not seq:
+        return
+
+    result = [seq[0]]
+    for num in seq[1:]:
+        if num != result[-1]:
+            result.append(num)
+
+    print(" ".join(map(str, result)))
+
+
+# Example usage:
+sequence = list(map(int, input("Enter numbers: ").split()))
+filter_duplicates(sequence)
